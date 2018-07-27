@@ -1,4 +1,4 @@
-funcion iniciar() {
+function iniciar(){
   maximo=600;
   medio=document.getElementById('medio');
   reproducir=document.getElementById('reproducir');
@@ -8,7 +8,7 @@ funcion iniciar() {
   reproducir.addEventListener('click', presionar, false);
   barra.addEventListener('click', mover, false);
 }
-funcion presionar() {
+function presionar() {
   if(!medio.paused && !medio.ended)  {
     medio.pause();
     reproducir.innerHTML='Reproducir';
@@ -19,7 +19,7 @@ funcion presionar() {
     bucle=setInterval(estado, 1000);
   }
 }
-funcion estado () {
+function estado () {
   if(!medio.ended){
     var total=parseInt(medio.currentTime*maximo/medio.duracion);
     progreso.style.width=total+'px';
@@ -29,7 +29,7 @@ funcion estado () {
     window.clearInterval(bucle);
   }
 }
-funcion mover(e){
+function mover(e){
   if(!medio.paused && !medio.ended){
     var ratonX=e.pageX-barra.offsetLeft;
     var nuevoTiempo=ratonX*medio.duracion/maximo;
